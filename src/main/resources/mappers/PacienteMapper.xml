@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="edu.eci.pdsw.persistence.impl.mappers.PacienteMapper">
+    
+
+        
+    <select parameterType="map" id="loadPacienteByID" resultMap="PacienteResult">
+
+    </select> 
+    
+    <insert id="insertarPaciente" >
+	INSERT into CM_PACIENTES (id,tipo_id,nombre,fecha_nacimiento,EPS_nit) values (#{p.id},#{p.tipoId},#{p.nombre}, #{p.fechaNacimiento}, #{p.eps.nit})
+    </insert>
+    <insert id ="insertConsulta" useGeneratedKeys="true" keyProperty="can.id">
+        insert into CM_CONSULTAS (idCONSULTAS,fecha_y_hora,resumen,costo,PACIENTES_id,PACIENTES_tipo_id) values (#{can.id}, #{fechar}, #{resum}, #{costoc}, #{idp}, #{tipoidp})
+    </insert>
+    <update id="actualizarPaciente" keyProperty="pa.id">
+        UPDATE CM_PACIENTES set nombre =#{pa.nombre},fecha_nacimiento=#{pa.fechaNacimiento}, EPS_nit=#{pa.eps.nit} WHERE id=#{pa.id}
+        
+    </update>
+        
+   
+    <select parameterType="map" id="loadPacientes" resultMap="PacienteResult">
+        select
+    p.id ,
+    p.tipo_id ,
+    p.nombre ,
+    p.fecha_nacimiento ,
+    e.nombre as detalle_nombre,
+    e.nit as detalle_nit,
+    c.idCONSULTAS as idCONSULTAS, 
+    c.fecha_y_hora as fecha_y_hora,
+    c.resumen as resumen,
+    c.costo as costo FROM  CM_PACIENTES as p left join CM_CONSULTAS as c on p.id=c.PACIENTES_id left join CM_EPS as e on p.eps_nit=e.nit where p.id=9999
+    </select>
+
+    <resultMap type='Paciente' id='PacienteResult'>
+            <id property='id' column='id'/>
+            <id property='tipoId' column='tipo_id'/>
+            <result property='nombre' column='nombre'/>  
+            <result property='fechaNacimiento' column='fecha_nacimiento'/>
+                         
+            <association property="eps" javaType="Eps"></association>     
+            <collection property='consultas' ofType='Consulta' columnPrefix='detalle_'></collection>
+                 
+    </resultMap>
+    <resultMap type='Eps' id='IdEps'>
+        <id property='nit' column='propiedad6'/>
+        <result property='nombre' column='propiedad5'/>
+    </resultMap> 
+        
+    <resultMap type='Consulta' id='IdConsulta'>
+        <id property='id' column='id'/>
+        <result property='fechayHora' column='idCONSULTAS'/>
+        <result property='resumen' column='nombre'/> 
+        <result property='costo' column='fecha_y_hora'/>      	    
+    </resultMap>
+    
+  
+
+
+
+                
+</mapper>

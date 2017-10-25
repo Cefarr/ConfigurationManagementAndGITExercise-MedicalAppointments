@@ -9,7 +9,6 @@
 
     <name>HistorialConsultas-tdd-webapp-base-nodb</name>
 
-    
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -54,9 +53,15 @@
             <classifier>classes</classifier>
         </dependency>
         <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>7.0</version>
+            <scope>provided</scope>
+        </dependency> 
+        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <scope>test</scope>
+                <scope>test</scope>
             <version>2.44.0</version>
         </dependency>
         <dependency>
@@ -70,15 +75,8 @@
                     <artifactId>selenium-remote-driver</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>7.0</version>
-            <scope>provided</scope>
-        </dependency> 
-
-        <!-- logger -->       
+        </dependency>     
+            <!-- logger -->       
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -91,8 +89,18 @@
             <version>1.2.17</version>
             <type>jar</type>
         </dependency>
-
-        
+       <!-- MyBatis, Mybatis-Guice -->       
+           <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis-guice</artifactId>
+        <version>3.4</version>
+    </dependency>
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>3.4.5</version>
+    </dependency>
+    
         <!-- logger -->
         
         <dependency>
@@ -106,7 +114,9 @@
             <artifactId>commons-logging</artifactId>
             <version>1.1.1</version>
         </dependency>
-        
+
+
+    
         <!--security-->
         <dependency>
             <groupId>org.apache.shiro</groupId>
@@ -125,13 +135,25 @@
             <artifactId>shiro-ehcache</artifactId>
             <version>1.2.1</version>
         </dependency>
-        <!--security-->
+        <!--Dependencias mysql y h2-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.36</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.191</version>
+        </dependency>
         
+
+                  
     </dependencies>
-    
+       
     <reporting>
         <plugins>
-       
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -144,15 +166,15 @@
           
                      <rulesets>
                         <ruleset>/rulesets/java/basic.xml</ruleset>
-                        <ruleset>/rulesets/java/braces.xml</ruleset>
+                            <ruleset>/rulesets/java/braces.xml</ruleset>
                     </rulesets>
 
           
                 </configuration>
-
+                
             </plugin>      
-            
-            
+
+                      
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
@@ -174,6 +196,8 @@
                     </formats>
                 </configuration>
             </plugin>        
+            
+            
         </plugins>
     </reporting>
     
@@ -182,6 +206,7 @@
         <!-- To define the plugin version in your parent POM -->
         <pluginManagement>
             <plugins>
+                
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>

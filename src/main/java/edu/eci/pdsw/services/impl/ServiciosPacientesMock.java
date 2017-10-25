@@ -14,13 +14,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.eci.pdsw.samples.services.impl;
+package edu.eci.pdsw.services.impl;
 
 import edu.eci.pdsw.samples.entities.Consulta;
 import edu.eci.pdsw.samples.entities.Eps;
 import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.services.ExcepcionServiciosPacientes;
-import edu.eci.pdsw.samples.services.ServiciosPacientes;
+import edu.eci.pdsw.services.ExcepcionServiciosPacientes;
+import edu.eci.pdsw.services.ServiciosPacientes;
 
 import java.util.ArrayList;
 import java.util.Date;

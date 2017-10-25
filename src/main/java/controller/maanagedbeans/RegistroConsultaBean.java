@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.pdsw.samples.managebeans;
+package controller.maanagedbeans;
 
 
 import edu.eci.pdsw.samples.entities.Consulta;
 import edu.eci.pdsw.samples.entities.Eps;
 import edu.eci.pdsw.samples.entities.Paciente;
-import edu.eci.pdsw.samples.services.ExcepcionServiciosPacientes;
-import edu.eci.pdsw.samples.services.ServiciosHistorialPacientesFactory;
-import edu.eci.pdsw.samples.services.ServiciosPacientes;
+import edu.eci.pdsw.services.ExcepcionServiciosPacientes;
+import edu.eci.pdsw.services.ServiciosHistorialPacientesFactory;
+import edu.eci.pdsw.services.ServiciosPacientes;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;

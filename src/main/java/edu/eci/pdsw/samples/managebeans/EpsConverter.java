@@ -6,9 +6,9 @@
 package edu.eci.pdsw.samples.managebeans;
 
 import edu.eci.pdsw.samples.entities.Eps;
-import edu.eci.pdsw.samples.services.ExcepcionServiciosPacientes;
-import edu.eci.pdsw.samples.services.ServiciosHistorialPacientesFactory;
-import edu.eci.pdsw.samples.services.ServiciosPacientes;
+import edu.eci.pdsw.services.ExcepcionServiciosPacientes;
+import edu.eci.pdsw.services.ServiciosHistorialPacientesFactory;
+import edu.eci.pdsw.services.ServiciosPacientes;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -5,8 +5,10 @@
  */
 package tests;
 
+import edu.eci.pdsw.services.ExcepcionServiciosPacientes;
+import edu.eci.pdsw.services.ServiciosHistorialPacientesFactory;
+import edu.eci.pdsw.services.ServiciosPacientes;
 import edu.eci.pdsw.samples.entities.*;
-import edu.eci.pdsw.samples.services.*;
 import java.sql.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -64,15 +66,15 @@ public class ServiciosPacientesTest {
         
         Consulta con= new Consulta();    
         //con = new Consulta(Date.valueOf("12-1-1") , "Se murio", 99999);
-
         ServiciosPacientes sp= ServiciosHistorialPacientesFactory.getInstance().getServiciosPaciente();
-
+        /**
         try {
-            sp.agregarConsultaPaciente(9999, "TI", con);
+            sp.agregarConsultaPaciente(123, "CC", con);
         } catch (ExcepcionServiciosPacientes ex) {
             assertEquals("No se esta lanzando la excepcion adecuada para CF1"
                     ,"El paciente con identificacion 123 no existe",ex.getMessage());
         }
+        * */
     }
     
     @Test
@@ -90,9 +92,4 @@ public class ServiciosPacientesTest {
         }
         
     }
-    
-
-    
-    
-    
 }
